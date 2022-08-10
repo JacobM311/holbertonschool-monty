@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 
     if (!oc)
     {
-        fprintf(stderr, "Error: Unable open file\n");
+        fprintf(stderr, "Error: Can't open file\n");
         exit(EXIT_FAILURE);
     }
 }
