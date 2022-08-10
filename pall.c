@@ -1,11 +1,20 @@
-#include "main.h"
+#include "monty.h"
 
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	while (*stack)
+	stack_t *node;
+
+	if (!*stack)
+		return;
+
+	(void)line_number;
+
+	node = *stack;
+
+	while (node)
 	{
-		printf("%d\n", stack->n);
-		stack = stack->next;
+		printf("%d\n", node->n);
+		node = node->next;
 	}
 }
