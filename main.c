@@ -76,7 +76,6 @@ void execute_op(stack_t **stack, unsigned int line)
 	int i = 0, check = 0;
 
 	instruction_t func_array[] = {
-	/*  */	// {"push", push},/*  */
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
