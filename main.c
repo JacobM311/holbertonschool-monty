@@ -38,7 +38,7 @@ void get_op(FILE *oc)
 	size_t oplength = 0;
 	stack_t *stack = NULL;
 
-	for (line = 1; line++)
+	for (line = 1;; line++)
 	{
 		check = getline(&opcode, &oplength, oc);
 
@@ -64,11 +64,10 @@ void get_op(FILE *oc)
 				continue;
 			op[1] = strtok(NULL, " \n\t");
 
-			execute_op(&stack, line)
+			execute_op(&stack, line);
 		}
 	}
-	if (op)
-		free(op);
+        free(opcode);
 }
 
 
@@ -77,7 +76,7 @@ void execute_op(stack_t **stack, unsigned int line)
 	int i = 0, check = 0;
 
 	instruction_t func_array[] = {
-		{"push", push},
+	/*  */	// {"push", push},/*  */
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
@@ -86,7 +85,7 @@ void execute_op(stack_t **stack, unsigned int line)
 
 	};
 
-	for (i = 0; func_array[i].opcode, != NULL; i++)
+	for (i = 0; func_array[i].opcode != NULL; i++)
 	{
 		if (strcmp(func_array[i].opcode, op[0]) == 0)
 		{
@@ -98,11 +97,9 @@ void execute_op(stack_t **stack, unsigned int line)
 
 	if (check != 1)
 	{
-		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line,
+		fprintf(stderr, "L%u: unknown instruction %s\n", line,
 			op[0]);
-		free(opcode);
-		freeList(*stack);
-		fclose(oc);
+		freeList(stack);
 		exit(EXIT_FAILURE);
 	}
 }

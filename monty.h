@@ -47,6 +47,10 @@ void pop(stack_t **stack, unsigned int line_num);
 void pall(stack_t **stack, unsigned int line_num);
 void pint(stack_t **stack, unsigned int line_num);
 void nop(stack_t **stack, unsigned int line_num);
+void get_op(FILE *oc);
+void execute_op(stack_t **stack, unsigned int line);
+void freeList(stack_t **head);
+
 
 extern char *op[];
 
