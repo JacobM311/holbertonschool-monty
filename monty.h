@@ -41,4 +41,11 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+
+
+void pop(stack_t **stack, unsigned int line_num);
+void pall(stack_t **stack, unsigned int line_num);
+void pint(stack_t **stack, unsigned int line_num);
+void nop(stack_t **stack, unsigned int line_num);
+
 #endif /* MONTY_H */
