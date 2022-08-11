@@ -1,26 +1,95 @@
 #include "monty.h"
 
-/**
- * push - adds an element to a stack
- * @stack: linked list stack to push to
- * @line_number: current line number of bytecode file
- */
+
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node;
+	int n;
 
-	node = malloc(sizeof(stack_t));
-
-	if (!newNode)
+	if (!op[1])
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		freeList(stack);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		op[3] = "ERROR";
+		return;
 	}
+	for (n = 0; op[1][n] != '\0'; n++)
+	{
+		if ((op[1][n] == '-' && n == 0) || (op[1][n] == '.'))
+			n++;
+		if (!isdigit(op[1][n]))
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			op[3] = "ERROR";
+		return;
+		}
+	}
+	n = atoi(op[1]);
+	if (strcmp("queue", op[2]) == 0)
+	{
+		if (add_node_end(stack, n) == NULL)
+		op[3] = "ERROR";
+		return;
+	}
+	else
+	{
+		if (add_node(stack, n) == NULL)
+		{
+			op[3] = "ERROR";
+			return; }
+	}
+}
 
-	(void)line_number;
+stack_t *add_node(stack_t **head, const int n)
+{
+	stack_t *new;
 
-	if (*stack)
-		(*stack)->prev = newNode;
+	if (head == NULL)
+		return (NULL);
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->prev = NULL;
+	new->next = *head;
+	*head = new;
+	if (new->next != NULL)
+		(new->next)->prev = new;
+	return (new);
+}
+
+void freeList(stack_t *head)
+{
+	stack_t *next;
+
+	while (head != NULL)
+	{
+		next = head->next;
+		free(head);
+		head = next;
+	}
+}
+
+stack_t *add_node_end(stack_t **head, const int n)
+{
+	stack_t *new, *tmp;
+
+	if (head == NULL)
+		return (NULL);
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->next = NULL;
+	if (*head == NULL)
+	{
+		new->prev = NULL;
+		*head = new;
+		return (new);
+	}
+	tmp = *head;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new;
+	new->prev = tmp;
 
 	return (new);
 }
