@@ -48,4 +48,6 @@ void pall(stack_t **stack, unsigned int line_num);
 void pint(stack_t **stack, unsigned int line_num);
 void nop(stack_t **stack, unsigned int line_num);
 
+extern char *op[];
+
 #endif /* MONTY_H */

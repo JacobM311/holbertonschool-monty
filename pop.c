@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * pop - frees the head node.
+ * @stack: the stack.
+ * @line_num: line number.
+ */
+
 void pop(stack_t **stack, unsigned int line_num)
 {
 	stack_t *new;
