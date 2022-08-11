@@ -1,7 +1,7 @@
 #include "monty.h"
 int main(int argc, char **argv)
 {
-    FILE *oc;
+    FILE *fp;
 
     if (argc != 2)
     {
@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 
     oc = fopen(argv[1], "r");
 
-    if (!oc)
+    if (!fp)
     {
         fprintf(stderr, "Error: Can't open file\n");
         exit(EXIT_FAILURE);
