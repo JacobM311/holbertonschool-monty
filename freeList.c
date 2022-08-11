@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * free_listint2 - free a certain list
+ * freeList - free a certain list
  *
  * @head: start of list
  */
