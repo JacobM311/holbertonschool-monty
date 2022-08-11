@@ -42,11 +42,11 @@ typedef struct instruction_s
 } instruction_t;
 
 
-
-void pop(stack_t **stack, unsigned int line_num);
-void pall(stack_t **stack, unsigned int line_num);
-void pint(stack_t **stack, unsigned int line_num);
-void nop(stack_t **stack, unsigned int line_num);
+void push(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 void get_op(FILE *oc);
 void execute_op(stack_t **stack, unsigned int line);
 stack_t *add_node_end(stack_t **head, const int n);

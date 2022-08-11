@@ -3,16 +3,16 @@
 /**
  * pop - frees the head node.
  * @stack: the stack.
- * @line_num: line number.
+ * @line_number: line number.
  */
 
-void pop(stack_t **stack, unsigned int line_num)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 
 	if (!*stack)
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line_num);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
