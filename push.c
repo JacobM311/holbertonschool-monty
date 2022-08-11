@@ -1,8 +1,9 @@
 #include "monty.h"
+
 /**
  * push - adds an element to a stack
- * @stack: stack
- * @line_number: line number
+ * @stack: linked list stack to push to
+ * @line_number: current line number of bytecode file
  */
 void push(stack_t **stack, unsigned int line_number)
 {
@@ -10,7 +11,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	node = malloc(sizeof(stack_t));
 
-	if (!node)
+	if (!newNode)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		freeList(stack);
@@ -19,10 +20,7 @@ void push(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	if (*stack)
-		(*stack)->prev = node;
+		(*stack)->prev = newNode;
 
-	node->prev = NULL;
-	node->next = *stack;
-	node->n = 0;
-	*stack = node;
+	return (new);
 }
