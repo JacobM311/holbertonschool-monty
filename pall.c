@@ -3,18 +3,20 @@
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node;
+	stack_t *seek, *head;
+	size_t nodes;
 
 	if (!*stack)
 		return;
-
-	(void)line_number;
-
-	node = *stack;
-
-	while (node)
+	head = *stack;
+	while (head->prev)
+		head = head->prev;
+	seek = head;
+	for (nodes = 0; seek != NULL; nodes++)
 	{
-		printf("%d\n", node->n);
-		node = node->next;
+		printf("%d\n", seek->n);
+		seek = seek->next;
 	}
+	return;
+	(void)line_number;
 }

@@ -49,7 +49,10 @@ void pint(stack_t **stack, unsigned int line_num);
 void nop(stack_t **stack, unsigned int line_num);
 void get_op(FILE *oc);
 void execute_op(stack_t **stack, unsigned int line);
-void freeList(stack_t **head);
+stack_t *add_node_end(stack_t **head, const int n);
+void freeList(stack_t *head);
+stack_t *add_node(stack_t **head, const int n);
+void push(stack_t **stack, unsigned int line_number);
 
 
 extern char *op[];
