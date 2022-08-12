@@ -31,6 +31,8 @@ int main(int argc, char **argv)
 
 	if (fclose(oc) != 0)
 		exit(EXIT_FAILURE);
+	if (op[3])
+		exit(EXIT_FAILURE);
 
 	return (EXIT_SUCCESS);
 }
@@ -97,9 +99,9 @@ void execute_op(stack_t **stack, unsigned int line)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
-		{"nop", nop},
 		{"swap", swap},
 		{"add", add},
+		{"nop", NULL},
 		{NULL, NULL}
 
 	};
