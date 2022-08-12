@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * pall - performs the pall opcode
+ * @stack: doubly linked list containing the stack
+ * @line_number: line number opcode
+ */
 
 void pall(stack_t **stack, unsigned int line_number)
 {

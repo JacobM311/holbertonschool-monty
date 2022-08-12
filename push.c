@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * push - performs the push opcode
+ * @stack: doubly linked list containing the stack
+ * @line_number: line number opcode came
+ */
 
 void push(stack_t **stack, unsigned int line_number)
 {
@@ -38,6 +43,13 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 }
 
+/**
+ * add_node - add a new node at the beginning of the linked list
+ * @head: double pointer to the beginning of the linked list
+ * @n: value to add to the new node
+ * Return: pointer to the new node, or NULL on failure
+ */
+
 stack_t *add_node(stack_t **head, const int n)
 {
 	stack_t *new;
@@ -56,6 +68,13 @@ stack_t *add_node(stack_t **head, const int n)
 	return (new);
 }
 
+/**
+ * freeList - free list
+ * @head: pointer to the beginning of the linked list
+ *
+ * Return: void
+ */
+
 void freeList(stack_t *head)
 {
 	stack_t *next;
@@ -67,6 +86,13 @@ void freeList(stack_t *head)
 		head = next;
 	}
 }
+
+/**
+ * add_node_end - add a new node at the beginning of the linked list
+ * @head: double pointer to the beginning of the linked list
+ * @n: value to add to the new node
+ * Return: pointer to the new node, or NULL on failure
+ */
 
 stack_t *add_node_end(stack_t **head, const int n)
 {
