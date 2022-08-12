@@ -6,10 +6,16 @@
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-    if (!stack || !*stack)
-    {
-        fprintf(stderr, "L%u: can't pint, stack empty", line_number);
-        exit(EXIT_FAILURE);
-    }
-    printf("%d\n", (*stack)->n);
+  	stack_t *seek;
+
+	if (!*stack)
+	{
+		dprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		opCommand[3] = "ERROR";
+		return;
+	}
+	seek = *stack;
+	while (seek->prev)
+		seek = seek->prev;
+	printf("%i\n", seek->n);
 }
