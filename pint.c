@@ -1,9 +1,11 @@
 #include "monty.h"
+
 /**
  * pint - prints the top of stack value
  * @stack: the stack
  * @line_number: line number
  */
+
 void pint(stack_t **stack, unsigned int line_number)
 {
   	stack_t *seek;
