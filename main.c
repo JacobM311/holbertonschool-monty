@@ -99,6 +99,7 @@ void execute_op(stack_t **stack, unsigned int line)
 		{"pop", pop},
 		{"nop", nop},
 		{"swap", swap},
+		{"add", add},
 		{NULL, NULL}
 
 	};
