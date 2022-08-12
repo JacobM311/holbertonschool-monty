@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void swap(stack_t **stack, unsigned int line_num)
+void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *seek, *swap;
 	int n;
