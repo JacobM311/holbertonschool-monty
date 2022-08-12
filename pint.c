@@ -10,8 +10,8 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	if (!*stack)
 	{
-		dprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
-		opCommand[3] = "ERROR";
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		op[3] = "ERROR";
 		return;
 	}
 	seek = *stack;
