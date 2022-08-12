@@ -24,7 +24,7 @@ void push(stack_t **stack, unsigned int line_number)
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			op[3] = "ERROR";
-		return;
+			return;
 		}
 	}
 	n = atoi(op[1]);
