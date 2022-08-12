@@ -8,7 +8,7 @@ void swap(stack_t **stack, unsigned int line_num)
 	if (!*stack || (((!(*stack)->prev)) && (!(*stack)->next)))
 	{/*there are less than 2 nodes*/
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
-		opCommand[3] = "ERROR";
+		op[3] = "ERROR";
 		return;
 	}
 	for (seek = *stack; seek->prev; seek = seek->prev)
