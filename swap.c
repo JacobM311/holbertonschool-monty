@@ -2,19 +2,19 @@
 
 void swap(stack_t **stack, unsigned int line_num)
 {
-    stack_t *temp = NULL;
-	int i = 0;
+	stack_t *seek, *swap;
+	int n;
 
-	if (!stack || !*stack || !((*stack)->next))
-	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_num);
-		exit(EXIT_FAILURE);
+	if (!*stack || (((!(*stack)->prev)) && (!(*stack)->next)))
+	{/*there are less than 2 nodes*/
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		opCommand[3] = "ERROR";
 		return;
 	}
-
-    temp = *stack;
-    i = temp->n;
-    temp->n = i;
-    temp->n = temp->next->n;
-    temp->next->n = i;
+	for (seek = *stack; seek->prev; seek = seek->prev)
+	;/*find the top*/
+	swap = seek->next;
+	n = seek->n;
+	seek->n = swap->n;
+	swap->n = n;
 }
