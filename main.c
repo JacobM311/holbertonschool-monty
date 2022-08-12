@@ -2,7 +2,12 @@
 
 char *op[] = {NULL, NULL, "stack", NULL};
 
-
+/**
+ * main - main function for monty
+ * @argc: argument counter
+ * @argv: array of argument strings
+ * Return: success exit with failure
+ */
 
 int main(int argc, char **argv)
 {
@@ -30,6 +35,11 @@ int main(int argc, char **argv)
 	return (EXIT_SUCCESS);
 }
 
+/**
+ * get_op - checks the file line by line for opcodes
+ * @oc: file stream of the input file
+ */
+
 void get_op(FILE *oc)
 {
 	unsigned int line;
@@ -47,12 +57,12 @@ void get_op(FILE *oc)
 			continue;
 		for (i = 0; opcode[0] != '\0'; i++)
 		{
-			if(opcode[i] == '\n' || check == 1)
-					break;
+			if (opcode[i] == '\n' || check == 1)
+				break;
 			if (opcode[i] == ' ' || opcode[i] == '\t')
-					check = 0;
+				check = 0;
 			else
-					check = 1;
+				check = 1;
 		}
 		if (check == 0)
 			continue;
@@ -69,9 +79,14 @@ void get_op(FILE *oc)
 	if (stack)
 		freeList(stack);
 	if (opcode)
-        	free(opcode);
+		free(opcode);
 }
 
+/**
+ * execute_op - checks for and runs the opcode
+ * @line: line number the opcode came from
+ * @stack: doubly linked list of the stack
+ */
 
 void execute_op(stack_t **stack, unsigned int line)
 {
